@@ -6,6 +6,7 @@
     --clr-p: #0032ff;
     --clr-s: #fff5ff;
     --clr-o: #3D6176;
+    --in-fs: 1em;
 }
 
 body{
@@ -82,11 +83,13 @@ body{
     border-radius: 5px;
     color: var(--clr-s);
     font-size: 1em;
-    transition: transform 400ms ease-in-out;
 }
 
 .intro_section-words a:hover{
-    transform: scale(1.1);
+    background: #ffffff;
+    border: 2px solid var(--clr-o);
+    color: var(--clr-o);
+    border-radius: 5px;
 }
 
 .intro_section-image img{
@@ -108,7 +111,7 @@ body{
 .search-section input{
     padding: 1em;
     height: 20px;
-    font-size: 1em;
+    font-size: var(--in-fs);
 }
 
 .search-section_2 #eventName{
