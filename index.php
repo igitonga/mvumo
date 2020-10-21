@@ -18,15 +18,15 @@
             <!-- top nav links -->
             <div class="nav-links">
                <ul>
-                   <li><a href="login.html">Login</a></li>
-                   <li><a href="signup.html">Sign Up</a></li>
+                   <li><a href="login.php">Login</a></li>
+                   <li><a href="signup.php">Sign Up</a></li>
                </ul>
             </div>
         </div>
         <div class="intro_section">
             <div class="intro_section-words">
                 <p>Get to know about your favourite event.</p>
-                <a href="login.html">Join Mvumo</a>
+                <a href="login.php">Join Mvumo</a>
             </div>
             <div class="intro_section-image">
                 <img src="img/event_head.svg" alt="animated image">

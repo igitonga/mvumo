@@ -80,7 +80,6 @@ body{
     font-size: var(--in-fs);
     color: var(--clr-s);
     background: var(--clr-p);
-    border: none;
     font-weight: bold;
 }
 

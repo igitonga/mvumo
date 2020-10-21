@@ -15,9 +15,9 @@
         </div>
         <!-- form on the right -->
         <div class="signup-form">
-            <p>Already have an account? <a href="login.html">Login</a></p>
+            <p>Already have an account? <a href="login.php">Login</a></p>
             <h2>Creating an account</h2>
-            <form action="" method="POST">
+            <form action="backend/signup.php" method="POST">
                 <input type="text" name="fullname" id="fullname" placeholder="Fullname" required><br>
                 <input type="text" name="username" id="username" placeholder="Username" required><br>
                 <input type="email" name="email" id="email" placeholder="Email" required><br>

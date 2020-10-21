@@ -15,7 +15,7 @@
         </div>
         <!-- form on the right -->
         <div class="login-form">
-            <p>Don't have an account? <a href="signup.html">Create account</a></p>
+            <p>Don't have an account? <a href="signup.php">Create account</a></p>
             <h2>Welcome back to Mvumo</h2>
             <form action="" method="POST">
                 <input type="email" name="email" id="email" placeholder="Email" required><br>
