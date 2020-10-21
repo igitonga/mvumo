@@ -1,0 +1,91 @@
+/* general settings */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+:root{
+    --clr-p: #0032ff;
+    --clr-s: #fff5ff;
+    --clr-o: #3D6176;
+    --in-fs: 1em;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+/* whole page container */
+.wrapper{
+    padding: 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* image container */
+.login-image{
+    background: url('../img/login.svg');
+    background-repeat: no-repeat;
+    height: 90vh;
+    width: 50vw;
+}
+
+/* login form container */
+.login-form{
+   height: 90vh;
+   width: 50vw;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.login-form p{
+    font-weight: bold;
+    margin-left: 25em;
+}
+
+.login-form p a{
+    text-decoration: none;
+    color: var(--clr-p);
+}
+
+.login-form h2{
+    font-size: 2em;
+    margin-top: 5em;
+    color: var(--clr-o);
+}
+
+.login-form #email{
+    margin-top: 6em;
+    width: 350px;
+    padding: 1em;
+    font-size: var(--in-fs);
+    border-radius: 50px;
+}
+
+.login-form #password{
+    margin-top: 1em;
+    width: 350px;
+    padding: 1em;
+    font-size: var(--in-fs);
+    border-radius: 50px;
+}
+
+.login-form #loginBtn{
+    margin-top: 2em;
+    padding: 1em;
+    width: 384px;
+    border-radius: 50px;
+    font-size: var(--in-fs);
+    color: var(--clr-s);
+    background: var(--clr-p);
+    border: none;
+    font-weight: bold;
+}
+
+.login-form #loginBtn:hover{
+    background: var(--clr-o);
+    color: var(--clr-s);
+    cursor: pointer;
+}
