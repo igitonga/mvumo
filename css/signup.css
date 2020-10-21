@@ -1,0 +1,107 @@
+/* general settings */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+:root{
+    --clr-p: #0032ff;
+    --clr-s: #fff5ff;
+    --clr-o: #3D6176;
+    --in-fs: 1em;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+/* whole page container */
+.wrapper{
+    padding: 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* image container */
+.signup-image{
+    background: url('../img/signup.svg');
+    background-repeat: no-repeat;
+    height: 90vh;
+    width: 50vw;
+}
+
+/* login form container */
+.signup-form{
+   height: 90vh;
+   width: 50vw;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.signup-form p{
+    font-weight: bold;
+    margin-left: 25em;
+}
+
+.signup-form p a{
+    text-decoration: none;
+    color: var(--clr-p);
+}
+
+.signup-form h2{
+    font-size: 2em;
+    margin-top: 4em;
+    color: var(--clr-o);
+}
+
+.signup-form #fullname{
+    margin-top: 2em;
+    width: 350px;
+    padding: 1em;
+    font-size: var(--in-fs);
+    border-radius: 50px;
+}
+
+.signup-form #username{
+    margin-top: 1em;
+    width: 350px;
+    padding: 1em;
+    font-size: var(--in-fs);
+    border-radius: 50px;
+}
+
+.signup-form #email{
+    margin-top: 1em;
+    width: 350px;
+    padding: 1em;
+    font-size: var(--in-fs);
+    border-radius: 50px;
+}
+
+.signup-form #password{
+    margin-top: 1em;
+    width: 350px;
+    padding: 1em;
+    font-size: var(--in-fs);
+    border-radius: 50px;
+}
+
+.signup-form #loginBtn{
+    margin-top: 2em;
+    padding: 1em;
+    width: 384px;
+    border-radius: 50px;
+    font-size: var(--in-fs);
+    color: var(--clr-s);
+    background: var(--clr-p);
+    border: none;
+    font-weight: bold;
+}
+
+.signup-form #loginBtn:hover{
+    background: var(--clr-o);
+    color: var(--clr-s);
+    cursor: pointer;
+}
