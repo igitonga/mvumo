@@ -61,7 +61,7 @@ body{
     width: 350px;
     padding: 1em;
     font-size: var(--in-fs);
-    border-radius: 50px;
+    border-radius: 5px;
 }
 
 .login-form #password{
@@ -69,14 +69,15 @@ body{
     width: 350px;
     padding: 1em;
     font-size: var(--in-fs);
-    border-radius: 50px;
+    border-radius: 5px;
 }
 
 .login-form #loginBtn{
     margin-top: 2em;
     padding: 1em;
     width: 384px;
-    border-radius: 50px;
+    border-radius: 5px;
+    border: none;
     font-size: var(--in-fs);
     color: var(--clr-s);
     background: var(--clr-p);

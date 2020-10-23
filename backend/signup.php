@@ -38,7 +38,7 @@ if(isset($_POST['loginBtn'])){
 
 }
 else{
-    echo "Technical issues";
+  //  echo "Technical issues";
 }
 
 ?>
