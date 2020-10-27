@@ -57,7 +57,7 @@ body{
 }
 
 .login-form #email{
-    margin-top: 6em;
+    margin-top: 5em;
     width: 350px;
     padding: 1em;
     font-size: var(--in-fs);
@@ -75,7 +75,7 @@ body{
 .login-form #loginBtn{
     margin-top: 2em;
     padding: 1em;
-    width: 384px;
+    width: 350px;
     border-radius: 5px;
     border: none;
     font-size: var(--in-fs);

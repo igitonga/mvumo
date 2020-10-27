@@ -1,6 +1,32 @@
 <?php
 
+//validate that user signs up once
+function validateUser($con, $email){
+
+    $valid = false;
+
+    $query = "SELECT `email` FROM `users` WHERE `email` = '$email'";
+    $exec = mysqli_query($con, $query);
+
+    if($exec){
+
+        $num_of_rows = mysqli_num_rows($exec);
+
+        if($num_of_rows == 0){
+            
+            $valid = true;
+        }
+    }
+
+    return $valid;
+}
+
+// insert details  to db
 function signupUser($con, $fName, $uName, $email, $pass){
+
+    session_start();
+
+    if(validateUser($con, $email)){
 
     // encrypt password
     $hashed_pass = password_hash($pass, PASSWORD_DEFAULT);
@@ -11,15 +37,24 @@ function signupUser($con, $fName, $uName, $email, $pass){
     $execute = mysqli_query($con, $sql);
 
     if($execute){
-        header('location: ../index.php');
+        header('location: ../login.php');
     }
     else{
         //echo mysqli_error($con);
     }
+    }
+    else{
+        header('location: ../signup.php');
+        $_SESSION['error'] = "Email already exists";
+
+        $_SESSION['fullname'] = $fName;
+        $_SESSION['username'] = $uName;
+    }
+    
 }
 
 //button functionality
-if(isset($_POST['loginBtn'])){
+if(isset($_POST['signupBtn'])){
 
     if(file_exists('db_connection.php')){
 
@@ -33,6 +68,7 @@ if(isset($_POST['loginBtn'])){
         signupUser($connection, $fullname, $username, $email, $password);
     }
     else{
+        
         echo "File not found";
     }
 

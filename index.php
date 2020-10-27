@@ -41,5 +41,9 @@
             </div>
         </div>
     </div>
+
+    <footer class="footer">
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Mvumo</p>
+    </footer>
 </body>
 </html>

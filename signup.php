@@ -1,9 +1,11 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/signup.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="icon" href="img/app-icon.png">
     <title>Mvumo | Sign Up</title>
 </head>
@@ -16,15 +18,26 @@
         <!-- form on the right -->
         <div class="signup-form">
             <p>Already have an account? <a href="login.php">Login</a></p>
+            <!-- alert pop up -->
+            <?php  include('backend/alert.php'); ?>
+            <?php
+            if(isset($_SESSION['error'])){
+                echo $_SESSION['error'];
+            }
+            ?>
             <h2>Creating an account</h2>
             <form action="backend/signup.php" method="POST">
                 <input type="text" name="fullname" id="fullname" placeholder="Fullname" required><br>
                 <input type="text" name="username" id="username" placeholder="Username" required><br>
                 <input type="email" name="email" id="email" placeholder="Email" required><br>
                 <input type="password" name="password" id="password" placeholder="Password" required><br>
-                <button type="submit" name="loginBtn" id="loginBtn">Create</button>
+                <button type="submit" name="signupBtn" id="signupBtn">Create</button>
             </form>
         </div>
     </div>
+
+    <!-- js files -->
+    <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
+<?php session_destroy(); ?>

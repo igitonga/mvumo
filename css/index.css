@@ -141,3 +141,14 @@ body{
     color: var(--clr-s);
     cursor: pointer;
 }
+
+/* Footer */
+.footer{
+    background: var(--clr-o);
+    color: var(--clr-s);
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 6em;
+}

@@ -88,10 +88,10 @@ body{
     border-radius: 5px;
 }
 
-.signup-form #loginBtn{
+.signup-form #signupBtn{
     margin-top: 2em;
     padding: 1em;
-    width: 384px;
+    width: 350px;
     border-radius: 5px;
     font-size: var(--in-fs);
     color: var(--clr-s);
@@ -100,7 +100,7 @@ body{
     font-weight: bold;
 }
 
-.signup-form #loginBtn:hover{
+.signup-form #signupBtn:hover{
     background: var(--clr-o);
     color: var(--clr-s);
     cursor: pointer;

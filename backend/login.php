@@ -16,18 +16,22 @@ function loginUser($con, $email, $pass){
 
             $stored_password = $row['password'];
 
-            // verify if password is correct
-            // if(password_verify($pass, $stored_password)){
+            //verify if password is correct
+            if(password_verify($pass, $stored_password)){
 
-            //     echo "Successful login";
-            // }
-            // else{
+                header('location: ../index.php');
+               // $_SESSION['success'] = "Successful login";
+            }
+            else{
 
-            //     echo "Wrong password";
-            // }
+                //header('location: ../login.php');
+                echo "Wrong password";
+            }
         }
         else{
-            echo "Login failed";
+
+            header('location: ../login.php');
+           // $_SESSION['error'] = "Login failed";
         }
     }
     else{
@@ -49,7 +53,7 @@ if(isset($_POST['loginBtn'])){
     loginUser($connection, $email, $password);
   }  
   else{
-      echo "File is not found";
+     // echo "File is not found";
   }
 }
 else{
