@@ -88,6 +88,21 @@ body{
     border-radius: 5px;
 }
 
+.signup-form .fa-eye-slash{
+    position: absolute;
+    right: 16em;
+    top: 33em;
+    cursor: pointer;
+}
+
+.signup-form .fa-eye{
+    position: absolute;
+    right: 16em;
+    top: 33em;
+    cursor: pointer;
+    display: none;
+}
+
 .signup-form #signupBtn{
     margin-top: 2em;
     padding: 1em;

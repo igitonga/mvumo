@@ -70,6 +70,22 @@ body{
     padding: 1em;
     font-size: var(--in-fs);
     border-radius: 5px;
+    position: relative;
+}
+
+.login-form .fa-eye-slash{
+    position: absolute;
+    right: 16em;
+    top: 28.5em;
+    cursor: pointer;
+}
+
+.login-form .fa-eye{
+    position: absolute;
+    right: 16em;
+    top: 28.5em;
+    cursor: pointer;
+    display: none;
 }
 
 .login-form #loginBtn{

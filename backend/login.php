@@ -19,19 +19,18 @@ function loginUser($con, $email, $pass){
             //verify if password is correct
             if(password_verify($pass, $stored_password)){
 
-                header('location: ../index.php');
-               // $_SESSION['success'] = "Successful login";
+                header('location: ../home.html');
             }
             else{
 
-                //header('location: ../login.php');
-                echo "Wrong password";
+                header('location: ../login.php');
+                $_SESSION["error"] = "Wrong credentials";
             }
         }
         else{
 
             header('location: ../login.php');
-           // $_SESSION['error'] = "Login failed";
+            $_SESSION["error"] = "User doesn't exist";
         }
     }
     else{
