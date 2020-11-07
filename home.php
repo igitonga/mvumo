@@ -30,7 +30,7 @@
                 <ul>
                     <li><a href="">Profile</a></li>
                     <li><a href="">Settings</a></li>
-                    <li><a href="">Log Out</a></li>
+                    <li><a href="backend/logout.php">Log Out</a></li>
                 </ul>
             </div>
         </div>

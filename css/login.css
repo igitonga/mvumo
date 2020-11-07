@@ -57,7 +57,7 @@ body{
 }
 
 .login-form #email{
-    margin-top: 5em;
+    margin-top: 4em;
     width: 350px;
     padding: 1em;
     font-size: var(--in-fs);
@@ -76,14 +76,14 @@ body{
 .login-form .fa-eye-slash{
     position: absolute;
     right: 16em;
-    top: 28.5em;
+    top: 27.5em;
     cursor: pointer;
 }
 
 .login-form .fa-eye{
     position: absolute;
     right: 16em;
-    top: 28.5em;
+    top: 27.5em;
     cursor: pointer;
     display: none;
 }
@@ -98,6 +98,7 @@ body{
     color: var(--clr-s);
     background: var(--clr-p);
     font-weight: bold;
+    margin-bottom: 1em;
 }
 
 .login-form #loginBtn:hover{
@@ -105,3 +106,11 @@ body{
     color: var(--clr-s);
     cursor: pointer;
 }
+
+.login-form .forgetPass{
+    color: var(--clr-p);
+    font-weight: 600;
+    margin-left: 14em;
+}
+
+

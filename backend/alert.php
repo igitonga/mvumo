@@ -2,7 +2,7 @@
 if (isset($_SESSION['error'])) {?>
         <div class="alert alert-danger alert-dismissable text-center" role="alert" >
             <button class="close" data-dismiss="alert">
-            <!-- <small><sup>x</sup></small> -->
+            <small><sup>x</sup></small>
             </button>
             <?php echo $_SESSION['error'] ?>
         </div>

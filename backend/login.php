@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 // verify details
 function loginUser($con, $email, $pass){
 
@@ -19,7 +21,7 @@ function loginUser($con, $email, $pass){
             //verify if password is correct
             if(password_verify($pass, $stored_password)){
 
-                header('location: ../home.html');
+                header('location: ../home.php');
             }
             else{
 
