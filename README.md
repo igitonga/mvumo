@@ -4,7 +4,7 @@
 
 Use the following credentials:
 
-* Email: ian@gmail.com
- * password: qwerty
+* Email: iangitonga47@gmail.com
+* password: qwerty
 
 

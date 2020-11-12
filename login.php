@@ -21,8 +21,7 @@
         <!-- form on the right -->
         <div class="login-form">
             <p>Don't have an account? <a href="signup.php">Create account</a></p>
-            
-            <h2>Welcome back to Mvumo</h2>
+
             <!-- alert pop up -->
             <?php  include("backend/alert.php"); ?>
             <?php 
@@ -30,8 +29,9 @@
            if(isset($_SESSION["error"])){
                echo $_SESSION["error"];
            }
-
             ?>
+            <h2>Welcome back to Mvumo</h2>
+            
             <form action="backend/login.php" method="POST">
                 <input type="email" name="email" id="email" placeholder="Email" required><br>
                 <input type="password" name="password" id="password" placeholder="Password" required>
@@ -40,7 +40,7 @@
                 <i class="fas fa-eye-slash" onclick="noShow()"></i><br>
                 <button type="submit" name="loginBtn" id="loginBtn">Welcome</button><br>
 
-                <a class="forgetPass" href="resetPassword.php">Forgot Password</a>
+                <a class="forgetPass" href="password_reset.php">Forgot Password</a>
             </form>
         </div>
     </div>

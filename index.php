@@ -26,7 +26,7 @@
         <div class="intro_section">
             <div class="intro_section-words">
                 <p>Get to know about your favourite event.</p>
-                <a href="login.php">Join Mvumo</a>
+                <a class="join" href="login.php">Join Mvumo</a>
             </div>
             <div class="intro_section-image">
                 <img src="img/event_head.svg" alt="animated image">

@@ -32,7 +32,7 @@ function loginUser($con, $email, $pass){
         else{
 
             header('location: ../login.php');
-            $_SESSION["error"] = "User doesn't exist";
+            $_SESSION["error"] = "User does not exist. Create account.";
         }
     }
     else{

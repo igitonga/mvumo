@@ -10,11 +10,21 @@ require './PHPMailer/src/Exception.php';
 require './PHPMailer/src/PHPMailer.php';
 require './PHPMailer/src/SMTP.php';
 require './db_connection.php';
+require './alert.php';
 
 if(isset($_POST['passResetBtn'])){
 
     $user_email = $_POST['email'];
 
+    // verify if email exists
+    $email_sql = mysqli_query($connection, "SELECT `email` FROM `users` WHERE `email`='$user_email'");
+
+    if(mysqli_num_rows($email_sql) == 0){
+        session_start();
+        $_SESSION['error'] = "User with this email doesn't exist. Create account.";
+        header('location: ../password_reset.php');
+    }
+    else{
     
     $genCode = uniqid(true);                      // generating a unique code to allow user to reset password
     $query = mysqli_query($connection, "INSERT INTO `resetpassword`(`code`,`email`)VALUES('$genCode','$user_email')");
@@ -28,8 +38,8 @@ if(isset($_POST['passResetBtn'])){
      $mail->isSMTP();                                            // Send using SMTP
      $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
      $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-     $mail->Username   = '**************';                     // SMTP username
-     $mail->Password   = '**********';                               // SMTP password
+     $mail->Username   = '********';                     // SMTP username
+     $mail->Password   = '********';                               // SMTP password
      $mail->SMTPSecure = 'ssl';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
      $mail->Port       = 465;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
  
@@ -40,7 +50,6 @@ if(isset($_POST['passResetBtn'])){
    
      // Content
      //$url = "http://" .$_SERVER["HTTP_HOST"] .dirname($_SERVER["PHP_SELF"]) ."/resetPassword_b.php?code=$genCode";   //redirect page
-     $url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"."/resetPassword_b.php?code=$genCode";
      $mail->isHTML(true);                                  // Set email format to HTML
      $mail->Subject = 'Password Reset';
      $mail->Body    = 'Follow the link below to reset your password:<br>
@@ -54,9 +63,10 @@ if(isset($_POST['passResetBtn'])){
      echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
  }
 
-header('location: ../login.php');
+header('location: ../password_message.html');
 
 exit();
+    }
 }
 
 ?>

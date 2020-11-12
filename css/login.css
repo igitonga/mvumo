@@ -57,7 +57,7 @@ body{
 }
 
 .login-form #email{
-    margin-top: 4em;
+    margin-top: 2em;
     width: 350px;
     padding: 1em;
     font-size: var(--in-fs);
@@ -76,14 +76,14 @@ body{
 .login-form .fa-eye-slash{
     position: absolute;
     right: 16em;
-    top: 27.5em;
+    top: 25.5em;
     cursor: pointer;
 }
 
 .login-form .fa-eye{
     position: absolute;
     right: 16em;
-    top: 27.5em;
+    top: 25.5em;
     cursor: pointer;
     display: none;
 }
