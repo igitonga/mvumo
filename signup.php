@@ -28,9 +28,30 @@
             ?>
             <h2>Creating an account</h2>
             <form action="backend/signup.php" method="POST">
-                <input type="text" name="fullname" id="fullname" placeholder="Fullname" required><br>
-                <input type="text" name="username" id="username" placeholder="Username" required><br>
-                <input type="email" name="email" id="email" placeholder="Email" required><br>
+                <input type="text" name="firstName" id="firstName" placeholder="First Name" required value=<?php
+                if(isset($_COOKIE["fname"])){
+                    echo $_COOKIE["fname"];
+                }
+                ?>
+                ><br>
+                <input type="text" name="lastName" id="lastName" placeholder="Last Name" required value=<?php
+                if(isset($_COOKIE["lname"])){
+                    echo $_COOKIE["lname"];
+                }
+                ?>
+                ><br>
+                <input type="text" name="username" id="username" placeholder="Username" required value=<?php
+                if(isset($_COOKIE["username"])){
+                    echo $_COOKIE["username"];
+                }
+                ?>
+                ><br>
+                <input type="email" name="email" id="email" placeholder="Email" required value=<?php
+                if(isset($_COOKIE["email"])){
+                    echo $_COOKIE["email"];
+                }
+                ?>
+                ><br>
                 <input type="password" name="password" id="password" placeholder="Password" required>
                 <!-- font awesome password icons -->
                 <i class="fas fa-eye" onclick="show()"></i>

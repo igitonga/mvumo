@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +29,7 @@
             </div>
             <div class="user-options">
                 <ul>
-                    <li><a href="">Profile</a></li>
+                    <li><a href="profile.php">Profile</a></li>
                     <li><a href="">Settings</a></li>
                     <li><a href="backend/logout.php">Log Out</a></li>
                 </ul>

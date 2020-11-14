@@ -22,7 +22,7 @@ function validateUser($con, $email){
 }
 
 // insert details  to db
-function signupUser($con, $fName, $uName, $email, $pass){
+function signupUser($con, $fName, $lName, $uName, $email, $pass){
 
     session_start();
 
@@ -32,8 +32,8 @@ function signupUser($con, $fName, $uName, $email, $pass){
     $hashed_pass = password_hash($pass, PASSWORD_DEFAULT);
 
     // insert to table query
-    $sql = "INSERT INTO `users`(`fullname`, `username`, `email`, `password`, `reg_date`)
-            VALUES('$fName', '$uName', '$email', '$hashed_pass', Now())";
+    $sql = "INSERT INTO `users`(`first_name`, `last_name`, `username`, `email`, `password`, `reg_date`)
+            VALUES('$fName', '$lName', '$uName', '$email', '$hashed_pass', Now())";
     $execute = mysqli_query($con, $sql);
 
     if($execute){
@@ -44,11 +44,12 @@ function signupUser($con, $fName, $uName, $email, $pass){
     }
     }
     else{
+        setcookie("fname", $fName, time()+1, "/");
+        setcookie("lname", $lName, time()+1, "/");
+        setcookie("username", $uName, time()+1, "/");
+        setcookie("email", $email, time()+1, "/");
         header('location: ../signup.php');
         $_SESSION['error'] = "Email already exists";
-
-        $_SESSION['fullname'] = $fName;
-        $_SESSION['username'] = $uName;
     }
     
 }
@@ -60,12 +61,13 @@ if(isset($_POST['signupBtn'])){
 
         require_once('db_connection.php');
 
-        $fullname = $_POST['fullname'];
+        $firstName = $_POST['firstName'];
+        $lastName = $_POST['lastName'];
         $username = $_POST['username'];
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        signupUser($connection, $fullname, $username, $email, $password);
+        signupUser($connection, $firstName,$lastName, $username, $email, $password);
     }
     else{
         

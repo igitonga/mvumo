@@ -33,7 +33,12 @@
             <h2>Welcome back to Mvumo</h2>
             
             <form action="backend/login.php" method="POST">
-                <input type="email" name="email" id="email" placeholder="Email" required><br>
+                <input type="email" name="email" id="email" placeholder="Email" required value=<?php
+                if(isset($_COOKIE["email"])){
+                    echo $_COOKIE["email"];
+                }
+                ?>
+                ><br>
                 <input type="password" name="password" id="password" placeholder="Password" required>
                 <!-- font awesome password icons -->
                 <i class="fas fa-eye" onclick="show()"></i>

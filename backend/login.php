@@ -17,14 +17,18 @@ function loginUser($con, $email, $pass){
             $row = mysqli_fetch_assoc($execute);
 
             $stored_password = $row['password'];
+            $stored_email = $row['email'];
+
 
             //verify if password is correct
             if(password_verify($pass, $stored_password)){
 
+                $_SESSION['active_email'] = $stored_email;
                 header('location: ../home.php');
             }
             else{
 
+                setcookie('email', $stored_email, time()+1, "/");
                 header('location: ../login.php');
                 $_SESSION["error"] = "Wrong credentials";
             }
