@@ -71,7 +71,7 @@ if(isset($_POST['signupBtn'])){
     }
     else{
         
-        echo "File not found";
+        //echo "File not found";
     }
 
 }

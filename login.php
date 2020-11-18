@@ -45,7 +45,7 @@
                 <i class="fas fa-eye-slash" onclick="noShow()"></i><br>
                 <button type="submit" name="loginBtn" id="loginBtn">Welcome</button><br>
 
-                <a class="forgetPass" href="password_reset.php">Forgot Password</a>
+                <a class="forgetPass" href="password_reset.php">Forgot Password?</a>
             </form>
         </div>
     </div>

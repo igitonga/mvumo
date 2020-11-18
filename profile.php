@@ -28,11 +28,15 @@ $email = $row['email'];
 </head>
 <body>
     <div class="wrapper">
+        <!-- top navigation bar -->
         <div class="top-nav">
             <div class="logo">
                 <img src="img/logo.png" alt="logo">
             </div>
             <div class="nav-links">
+                <div class="post_event">
+                   <p><a href="">POST EVENT</a></p>
+                </div>
                 <ul>
                     <li><a href="">Explore</a></li>
                     <li><a href="">Notifications</a></li>
@@ -44,11 +48,12 @@ $email = $row['email'];
                     <i class="fas fa-chevron-down"></i>
                 </div>
             </div>
+            <!-- dropdown -->
             <div class="user-options">
                 <ul>
-                    <li><a href="profile.html">Profile</a></li>
-                    <li><a href="">Settings</a></li>
-                    <li><a href="backend/logout.php">Log Out</a></li>
+                    <li><i class="fas fa-user"></i><a href="profile.php">Profile</a></li>
+                    <li><i class="fas fa-coins"></i><a href="">Payments Made</a></li>
+                    <li><i class="fas fa-sign-out-alt"></i><a href="backend/logout.php">Log Out</a></li>
                 </ul>
             </div>
         </div>

@@ -52,7 +52,7 @@ body{
 
 .nav-links ul{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
     list-style: none;
 }
 
@@ -121,56 +121,6 @@ body{
 
 .show{
     display: block;
-}
-
-/* Find event section */
-.find-event{
-    background: var(--clr-o);
-    color: var(--clr-s);
-    height: 25vh;
-    display: flex;
-    justify-content: center;
-    position: relative;
-}
-
-.find-event .text{
-    text-align: center;
-}
-
-/* search bar */
-
-.search{
-    padding: 1.3em;
-    background: #1f1d1d;
-    width: 40%;
-    right: 30%;
-    left: 30%;
-    top: 17em;
-    position: absolute;
-    display: flex;
-    flex-direction: row;
-}
-
-.search #searchBar{
-    padding: .5em;
-    width: 300px;
-    font-size: var(--in-fs);
-    position: relative;
-}
-
-.search .fa-search{
-    position: absolute;
-    color: var(--clr-o);
-    left: 11em;
-    top: 1.3em;
-    font-size: 1.7em;
-    cursor: pointer;
-}
-
-.search p{
-    margin-left: 2em;
-    color: var(--clr-s);
-    font-size: var(--in-fs);
 }
 
 /* footer */

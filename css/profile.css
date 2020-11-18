@@ -32,10 +32,27 @@ body{
     display: flex;
 }
 
+.nav-links .post_event{
+    background: var(--clr-p);
+    padding: 0 1em;
+    border-radius: 100px;
+}
+
+.nav-links .post_event:hover{
+    cursor: pointer;
+    background: #0033ffb0;
+}
+
+.nav-links .post_event a{
+    text-decoration: none;
+    color: var(--clr-s);
+    font-weight: bold;
+    font-size: .8em;
+}
+
 .nav-links ul{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-column-gap: .8em;
     list-style: none;
 }
 
@@ -90,6 +107,11 @@ body{
 .user-options ul li{
     list-style: none;
     margin-top: 1em;
+}
+
+.user-options .fas{
+    color: var(--clr-o);
+    margin-right: 0.5em;
 }
 
 .user-options a{

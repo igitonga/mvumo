@@ -38,5 +38,20 @@ function displayImage(e){
     }
 }
 
+//  setting poster image on the post event page
+function setPoster(){
+   document.querySelector('#posterImg').click();
+}
+
+function displayImage(e){
+    if(e.files[0]){
+        let reader = new FileReader();
+
+        reader.onload = function(e){
+            document.querySelector('#posterDisplay').setAttribute('src', e.target.result);
+        }
+        reader.readAsDataURL(e.files[0]);
+    }
+}
 
 

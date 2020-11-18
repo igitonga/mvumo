@@ -32,24 +32,6 @@ body{
     display: flex;
 }
 
-.nav-links .post_event{
-    background: var(--clr-p);
-    padding: 0 1em;
-    border-radius: 100px;
-}
-
-.nav-links .post_event:hover{
-    cursor: pointer;
-    background: #0033ffb0;
-}
-
-.nav-links .post_event a{
-    text-decoration: none;
-    color: var(--clr-s);
-    font-weight: bold;
-    font-size: .8em;
-}
-
 .nav-links ul{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -123,54 +105,72 @@ body{
     display: block;
 }
 
-/* Find event section */
-.find-event{
-    background: var(--clr-o);
-    color: var(--clr-s);
-    height: 25vh;
+/* user info input section */
+.info-table_cont{
+    background: #f1eded;
     display: flex;
     justify-content: center;
-    position: relative;
+    padding: 2em;
 }
 
-.find-event .text{
-    text-align: center;
+.info-table_cont .info-table{
+    width: 50%;
+    height: auto;
+    background: #ffffff;
+    padding: 3em;
 }
 
-/* search bar */
-
-.search{
-    padding: 1.3em;
-    background: #1f1d1d;
-    width: 40%;
-    right: 30%;
-    left: 30%;
-    top: 17em;
-    position: absolute;
-    display: flex;
-    flex-direction: row;
+.info-table label{
+    font-weight: bold;
+    opacity: 0.5;
 }
 
-.search #searchBar{
-    padding: .5em;
-    width: 300px;
-    font-size: var(--in-fs);
-    position: relative;
-}
 
-.search .fa-search{
-    position: absolute;
-    color: var(--clr-o);
-    left: 11em;
-    top: 1.3em;
-    font-size: 1.7em;
+/* poster image */
+#posterDisplay{
+    height: 200px;
+    width: 200px;
     cursor: pointer;
+    margin-top: 0.3em;
+    margin-bottom: 0.8em;
 }
 
-.search p{
-    margin-left: 2em;
+#posterImg{
+    display: none;
+}
+
+/* reset of the info */
+.info-table .date{
+    margin-top: 0.3em;
+    margin-bottom: 0.8em;
+    padding: 0.5em;
+    width: 498px;
+    font-size: var(--in-fs);
+}
+
+.info-table .description{
+    margin-top: 0.3em;
+    margin-bottom: 0.8em;
+    width: 500px;
+    padding: 0.5em;
+    font-size: var(--in-fs);
+}
+
+.info-table .postEvtBtn{
+    background: var(--clr-p);
     color: var(--clr-s);
     font-size: var(--in-fs);
+    font-weight: bold;
+    width: 100px;
+    padding: 0.5em;
+    border: none;
+    border-radius: 5px;
+    margin-top: 2em;
+}
+
+.info-table .postEvtBtn:hover{
+    cursor: pointer;
+    background-color: var(--clr-o);
 }
 
 /* footer */
@@ -181,5 +181,5 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 6em;
 }
+ 

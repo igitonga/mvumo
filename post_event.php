@@ -1,13 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/home.css">
     <script src="https://kit.fontawesome.com/bb8cdd0579.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/post_event.css">
     <link rel="icon" href="img/app-icon.png">
-    <title>Mvumo | Home</title>
+    <title>Mvumo | Post Event</title>
 </head>
 <body>
     <div class="wrapper">
@@ -16,9 +15,6 @@
                 <img src="img/logo.png" alt="logo">
             </div>
             <div class="nav-links">
-                <div class="post_event">
-                   <p><a href="post_event.php">POST EVENT</a></p>
-                </div>
                 <ul>
                     <li><a href="">Explore</a></li>
                     <li><a href="">Notifications</a></li>
@@ -38,25 +34,34 @@
                 </ul>
             </div>
         </div>
-        <div class="find-event">
-            <div class="text">
-                <h1>Find your next event</h1>
-                <p>Get ready to turn up.</p>
+        <div class="info-table_cont">
+            <div class="info-table">
+                <form action="backend/post_event.php" method="POST" enctype="multipart/form-data">
+                    <div class="poster-cont">
+                        <label for="posterImg">Add event poster</label><br>
+                        <img src="img/placeholder-image.png " alt="poster_image" id="posterDisplay" onclick="setPoster()">
+                        <input type="file" name="posterImg" id="posterImg" onchange="displayImage(this)">
+                    </div>
+                    <div class="date-cont">
+                        <label for="date">Date of the event</label><br>
+                        <input type="date" name="date" class="date">
+                    </div>
+                    <div class="description-cont">
+                        <label for="description">Give a small description</label><br>
+                        <textarea name="description" class="description" cols="30" rows="10" placeholder="Write Something..."></textarea>
+                    </div>
+                    <button type="submit" class="postEvtBtn" name="postEvtBtn">Post</button>
+                </form>
             </div>
-        </div>
-        <div class="search">
-            <input type="text" name="searchBar" id="searchBar" placeholder="Search">
-            <i class="fas fa-search"></i>
-            <p>events around your town</p>
         </div>
     </div>
 
-    <!-- footer -->
-    <!-- <footer class="footer">
+     <!-- footer -->
+     <footer class="footer">
         <p>&copy; <script>document.write(new Date().getFullYear())</script> Mvumo</p>
-    </footer> -->
+    </footer>
 
     <!-- js files -->
-    <script type="text/javascript" src="js/app.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>

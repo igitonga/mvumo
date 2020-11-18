@@ -18,12 +18,15 @@ function loginUser($con, $email, $pass){
 
             $stored_password = $row['password'];
             $stored_email = $row['email'];
-
+            //$user_id = $row['id'];
 
             //verify if password is correct
             if(password_verify($pass, $stored_password)){
 
                 $_SESSION['active_email'] = $stored_email;
+                //$_SESSION['user_id'] = $user_id;
+
+                echo $_SESSION['user_id'];
                 header('location: ../home.php');
             }
             else{
