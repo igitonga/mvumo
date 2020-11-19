@@ -49,12 +49,33 @@
             <i class="fas fa-search"></i>
             <p>events around your town</p>
         </div>
+
+    <?php
+        include('backend/db_connection.php');
+
+        $event = mysqli_query($connection, "SELECT `image`, `date`, `location`, `description` FROM `event`");
+
+        echo "<div class='card-deck'>";
+         echo "<div class='row'>";
+            while ($row = mysqli_fetch_array($event)) {
+            
+                echo "<div class='card'>";
+                    echo "<img src='uploaded_posters/".$row['image']."' >";
+                    echo "<p>".$row['date']."</p>";
+                    echo "<p>".$row['location']."</p>";
+                    echo "<p>".$row['description']."</p>";
+                echo "</div>";
+            
+            }
+         echo "</div>";    
+        echo "</div>";    
+  ?>
     </div>
 
     <!-- footer -->
-    <!-- <footer class="footer">
+    <footer class="footer">
         <p>&copy; <script>document.write(new Date().getFullYear())</script> Mvumo</p>
-    </footer> -->
+    </footer>
 
     <!-- js files -->
     <script type="text/javascript" src="js/app.js"></script>

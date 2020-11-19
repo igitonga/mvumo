@@ -140,7 +140,8 @@ body{
 }
 
 /* reset of the info */
-.info-table .date{
+.info-table .date, 
+.location{
     margin-top: 0.3em;
     margin-bottom: 0.8em;
     padding: 0.5em;

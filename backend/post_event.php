@@ -1,5 +1,9 @@
 <?php
 
+include('./login.php');
+
+$active_id =  $_SESSION['active_id'];
+
 if(isset($_POST['postEvtBtn'])){
 
     // active user
@@ -37,15 +41,17 @@ if(isset($_POST['postEvtBtn'])){
                     
                     $poster = $fileNewName;
                     $date = $_POST['date'];
+                    $loc = $_POST['location'];
                     $desc = $_POST['description'];
 
-                    $sql = "INSERT INTO `event` (`user_id`, `image`, `date`, `description`) VALUES ('7', '$poster', '$date', '$desc')";
+                    $sql = "INSERT INTO `event` (`user_id`, `image`, `date`, `location`, `description`) 
+                            VALUES ('$active_id', '$poster', '$date', '$loc', '$desc')";
                     $exec = mysqli_query($connection, $sql);
 
                     if($exec){
                          // move poster to the uploaded poster folder
                          move_uploaded_file($fileTmpName, $store); 
-
+                         
                          header('location: ../home.php');
                     }
                     else{

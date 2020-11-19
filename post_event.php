@@ -44,11 +44,15 @@
                     </div>
                     <div class="date-cont">
                         <label for="date">Date of the event</label><br>
-                        <input type="date" name="date" class="date">
+                        <input type="date" name="date" class="date" required>
+                    </div>
+                    <div class="location-cont">
+                        <label for="location">Location of the event</label><br>
+                        <input type="text" name="location" class="location" required>
                     </div>
                     <div class="description-cont">
                         <label for="description">Give a small description</label><br>
-                        <textarea name="description" class="description" cols="30" rows="10" placeholder="Write Something..."></textarea>
+                        <textarea name="description" class="description" cols="30" rows="10" placeholder="Write Something..." required></textarea>
                     </div>
                     <button type="submit" class="postEvtBtn" name="postEvtBtn">Post</button>
                 </form>

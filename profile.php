@@ -4,6 +4,7 @@ include('backend/db_connection.php');
 include('backend/login.php');
 
 $active_email = $_SESSION['active_email'];
+$active_id = $_SESSION['active_id']; 
 
 $sql = mysqli_query($connection, "SELECT * FROM `users` WHERE `email`='$active_email'");
 
@@ -14,6 +15,16 @@ $lastName = $row['last_name'];
 $username = $row['username'];
 $email = $row['email'];
 
+$sql2 = mysqli_query($connection, "SELECT * FROM `profile` WHERE `user_id`='$active_id'");
+
+$row = mysqli_fetch_assoc($sql2);
+
+$phone = $row['phone'];
+$location = $row['location'];
+$category = $row['category'];
+$birthday = $row['birthday'];
+$gender = $row['gender'];
+ 
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +46,7 @@ $email = $row['email'];
             </div>
             <div class="nav-links">
                 <div class="post_event">
-                   <p><a href="">POST EVENT</a></p>
+                   <p><a href="post_event.php">POST EVENT</a></p>
                 </div>
                 <ul>
                     <li><a href="">Explore</a></li>
@@ -85,22 +96,35 @@ $email = $row['email'];
                         <input type="email" id="email" name="email" value=<?php echo $email ; ?>><br>
 
                         <label for="phone">Phone</label><br>
-                        <input type="tel" id="phone" name="phone"><br>
+                        <input type="tel" id="phone" name="phone" required value=<?php echo $phone ; ?>><br>
 
                         <label for="location">Location</label><br>
-                        <input type="text" id="location" name="location"><br>
+                        <input type="text" id="location" name="location" required value=<?php echo $location ; ?>><br>
 
-                        <label for="language">Language</label><br>
-                        <input type="text" id="language" name="lanuage"><br>
+                        <label for="category">Event Category</label><br>
+                        <select name="category" id="category" required  value=<?php echo $category; ?>>
+                            <option value="" disabled selected hidden>Choose a category...</option>
+                            <option value="tech">Tech</option>
+                            <option value="sports and fitness">Sports & Fitness</option>
+                            <option value="music">Music</option>
+                            <option value="career and business">Career & Business</option>
+                            <option value="art">Art</option>
+                            <option value="fashion and beauty">Fashion & Beauty</option>
+                            <option value="photography">Photography</option>
+                            <option value="social">Social</option>
+                            <option value="sci-fi and games">SCi-Fi & Games</option>
+                            <option value="film">Film</option>
+                        </select><br>
                         
                         <label for="birthday">Birthday</label><br>
-                        <input type="date" id="birthday" name="birthday"><br>
+                        <input type="date" id="birthday" name="birthday" value=<?php echo $birthday ; ?>><br>
 
                         <label for="gender">Gender</label><br>
-                        <input type="radio" id="male" name="gender" value="male">
-                        <label for="male">Male</label><br>
-                        <input type="radio" id="female" name="gender" value="female">
-                        <label for="female">Female</label><br>
+                        <select name="gender" id="gender" rquired  value=<?php echo $gender ; ?>>
+                            <option value="" disabled selected hidden>Choose Gender...</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select><br>
 
                         <button type="submit" class="saveBtn" name="saveBtn">Save</button>
                     </form>

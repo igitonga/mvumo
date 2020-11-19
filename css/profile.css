@@ -182,9 +182,16 @@ body{
 .profile-info #email,
 #phone,
 #location,
-#language,
 #birthday{
     width: 370px;
+}
+
+#category,
+#gender{
+    margin-top: 0.3em;
+    margin-bottom: 0.8em;
+    padding: 0.5em;
+    width: 387px;
 }
 
 .profile-info .names{
