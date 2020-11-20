@@ -175,8 +175,7 @@ body{
 
 /* event cards */
 .card-deck{
-    border: 1px solid red;
-    padding: 1em 7em;
+    padding: 0 7em;
     margin-top: 4em;
     display: grid;
     grid-template-rows: auto;
@@ -184,23 +183,46 @@ body{
 }
 
 .card-deck .row{
-    border: 1px solid springgreen;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 1em;
-    width: 100%;
 }
 
 .card-deck .row .card{
     background: #fff;
-    height: 29vh;
+    height: 35vh;
     box-shadow: 0px 0px 10px var(--clr-o);
+    margin-bottom: 1em;
+    cursor: pointer;
 }
 
 .card img{
-    height: 100px;
+    height: 150px;
     width: 100%;
-    max-width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.card .card_date,
+.card_location,
+.card_desc{
+    padding: 0 1em;
+}
+
+.card_date{
+    color: var(--clr-p);
+    font-weight: bold;
+}
+
+.card_location{
+    margin-top: -0.5em;
+    color: var(--clr-o);
+    font-weight: bold;
+}
+
+.card_desc{
+    margin-top: -0.5em;
+    color: #1f1d1d;
 }
 
 /* footer */

@@ -61,9 +61,9 @@
             
                 echo "<div class='card'>";
                     echo "<img src='uploaded_posters/".$row['image']."' >";
-                    echo "<p>".$row['date']."</p>";
-                    echo "<p>".$row['location']."</p>";
-                    echo "<p>".$row['description']."</p>";
+                    echo "<p class='card_date'>".date("d-m-Y",strtotime($row['date']))."</p>";
+                    echo "<p class='card_location'>".$row['location']."</p>";
+                    echo "<p class='card_desc'>".$row['description']."</p>";
                 echo "</div>";
             
             }

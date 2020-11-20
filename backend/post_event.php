@@ -1,6 +1,7 @@
 <?php
 
 include('./login.php');
+include('./alert.php');
 
 $active_id =  $_SESSION['active_id'];
 
@@ -60,19 +61,22 @@ if(isset($_POST['postEvtBtn'])){
                     
                 }  
                 else{
-                    echo "File is not found";
+                   echo "File is not found";
                 }
             }
             else{
-                echo "The image size is too big";
+                $_SESSION['error'] = "The image size is too big";
+                header('location: ../post_event.php');
             }
         }
         else{
-            echo "An error occurred when uploading your image";
+            $_SESSION['error'] = "An error occurred when uploading your image";
+            header('location: ../post_event.php');
         }
     }
     else{
-        echo "Cannot upload image of that type.";
+        $_SESSION['error'] = "Cannot upload image of that type.";
+        header('location: ../post_event.php');
     }
 
    

@@ -123,6 +123,7 @@ body{
 .info-table label{
     font-weight: bold;
     opacity: 0.5;
+    margin-top: 0.4em;
 }
 
 
@@ -142,19 +143,18 @@ body{
 /* reset of the info */
 .info-table .date, 
 .location{
-    margin-top: 0.3em;
-    margin-bottom: 0.8em;
     padding: 0.5em;
     width: 498px;
     font-size: var(--in-fs);
+    cursor: pointer;
 }
 
 .info-table .description{
-    margin-top: 0.3em;
     margin-bottom: 0.8em;
     width: 500px;
     padding: 0.5em;
     font-size: var(--in-fs);
+    cursor: pointer;
 }
 
 .info-table .postEvtBtn{

@@ -74,7 +74,7 @@ $gender = $row['gender'];
                     <h2><?php echo $username ?></h2>
                 </div>
                 <div class="dp-cont">
-                    <form action="" method="POST" enctype="multipart/form-data">
+                    <form action="backend/profile.php" method="POST" enctype="multipart/form-data">
                         <img src="img/placeholder-image.png " alt="user_image" id="profileDisplay" onclick="setDp()">
                         <input type="file" name="profilePic" id="profilePic" onchange="displayImage(this)">
                     </form>
