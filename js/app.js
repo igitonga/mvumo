@@ -43,7 +43,7 @@ function setPoster(){
    document.querySelector('#posterImg').click();
 }
 
-function displayImage(e){
+function displayPoster(e){
     if(e.files[0]){
         let reader = new FileReader();
 

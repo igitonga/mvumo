@@ -40,7 +40,7 @@
                     <div class="poster-cont">
                         <label for="posterImg">Add event poster</label><br>
                         <img src="img/placeholder-image.png " alt="poster_image" id="posterDisplay" onclick="setPoster()">
-                        <input type="file" name="posterImg" id="posterImg" onchange="displayImage(this)">
+                        <input type="file" name="posterImg" id="posterImg" onchange="displayPoster(this)">
                     </div>
                     <div class="date-cont">
                         <label for="date">Date of the event</label><br>
