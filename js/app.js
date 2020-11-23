@@ -54,4 +54,9 @@ function displayPoster(e){
     }
 }
 
+// search bar in the home page
+function searchIcon(){
+    document.querySelector('#searchBtn').click();
+}
+
 

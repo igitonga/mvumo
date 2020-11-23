@@ -135,6 +135,7 @@ body{
 
 .find-event .text{
     text-align: center;
+    margin-top: 1em;
 }
 
 /* search bar */
@@ -142,9 +143,9 @@ body{
 .search{
     padding: 1.3em;
     background: #1f1d1d;
-    width: 40%;
-    right: 30%;
-    left: 30%;
+    width: 50%;
+    right: 25%;
+    left: 25%;
     top: 16em;
     position: absolute;
     display: flex;
@@ -152,16 +153,20 @@ body{
 }
 
 .search #searchBar{
-    padding: .5em;
-    width: 300px;
+    padding: 1em;
+    width: 450px;
     font-size: var(--in-fs);
     position: relative;
+}
+
+.search #searchBtn{
+    display: none;
 }
 
 .search .fa-search{
     position: absolute;
     color: var(--clr-o);
-    left: 11em;
+    left: 16.5em;
     top: 1.3em;
     font-size: 1.7em;
     cursor: pointer;
@@ -173,10 +178,15 @@ body{
     font-size: var(--in-fs);
 }
 
+/* result after searching */
+.results_heading{
+    margin-top: -2em;
+}
+
 /* event cards */
 .card-deck{
     padding: 0 7em;
-    margin-top: 4em;
+    margin-top: 5em;
     display: grid;
     grid-template-rows: auto;
     grid-row-gap: 1em;

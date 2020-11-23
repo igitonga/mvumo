@@ -45,31 +45,73 @@
             </div>
         </div>
         <div class="search">
-            <input type="text" name="searchBar" id="searchBar" placeholder="Search">
-            <i class="fas fa-search"></i>
+            <form action="home.php" method="POST">
+                <input type="text" name="searchBar" id="searchBar" placeholder="Search">
+                <button type="submit" id="searchBtn" name="searchBtn"></button>
+            </form>
+            <i class="fas fa-search" onclick="searchIcon()"></i>
             <p>events around your town</p>
         </div>
 
-    <?php
-        include('backend/db_connection.php');
+            <?php
 
-        $event = mysqli_query($connection, "SELECT `image`, `date`, `location`, `description` FROM `event`");
+                include('backend/db_connection.php');
 
-        echo "<div class='card-deck'>";
-         echo "<div class='row'>";
-            while ($row = mysqli_fetch_array($event)) {
-            
-                echo "<div class='card'>";
-                    echo "<img src='uploaded_posters/".$row['image']."' >";
-                    echo "<p class='card_date'>".date("d-m-Y",strtotime($row['date']))."</p>";
-                    echo "<p class='card_location'>".$row['location']."</p>";
-                    echo "<p class='card_desc'>".$row['description']."</p>";
-                echo "</div>";
-            
-            }
-         echo "</div>";    
-        echo "</div>";    
-  ?>
+                // php that displays the cards 
+                $event = mysqli_query($connection, "SELECT `image`, `date`, `location`, `description` FROM `event`");
+
+                echo "<div class='card-deck'>";
+                echo "<div class='row default-row'>";
+                    while ($row = mysqli_fetch_array($event)) {
+                    
+                        echo "<div class='card'>";
+                            echo "<img src='uploaded_posters/".$row['image']."' >";
+                            echo "<p class='card_date'>".date("d-m-Y",strtotime($row['date']))."</p>";
+                            echo "<p class='card_location'>".$row['location']."</p>";
+                            echo "<p class='card_desc'>".$row['description']."</p>";
+                        echo "</div>";
+                    
+                    }
+                echo "</div>";    
+                echo "</div>";  
+                
+                // php to display search results
+                if(isset($_POST['searchBtn'])){
+        
+                    $user_search = $_POST['searchBar'];
+                    $search = mysqli_real_escape_string($connection, $user_search);
+
+                    $search_query = "SELECT * FROM `event` WHERE `date` LIKE '%$user_search%' OR `location` LIKE '%$user_search%'
+                                     OR `description` LIKE '%$user_search%'";
+                    $exec = mysqli_query($connection, $search_query);
+                    
+                    $num_rows = mysqli_num_rows($exec);
+
+                    if($num_rows > 0){
+                        echo "<script type='text/javascript'>
+                        document.querySelector('.default-row').style.display='none';
+                        </script>";
+                        echo "<div class='card-deck'>";
+                        echo "<h1 class='results_heading'>Search Results</h1>";
+                        echo "</br>";
+                        echo "<div class='row'>";
+                            while ($row = mysqli_fetch_array($exec)) {
+                                echo "<div class='card'>";
+                                    echo "<img src='uploaded_posters/".$row['image']."' >";
+                                    echo "<p class='card_date'>".date("d-m-Y",strtotime($row['date']))."</p>";
+                                    echo "<p class='card_location'>".$row['location']."</p>";
+                                    echo "<p class='card_desc'>".$row['description']."</p>";
+                                echo "</div>";
+                            
+                            }
+                        echo "</div>";    
+                        echo "</div>"; 
+                    }
+                    else{
+                        echo "No search result found";
+                    }
+                }
+            ?>
     </div>
 
     <!-- footer -->
