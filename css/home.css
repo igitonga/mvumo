@@ -178,11 +178,6 @@ body{
     font-size: var(--in-fs);
 }
 
-/* result after searching */
-.results_heading{
-    margin-top: -2em;
-}
-
 /* event cards */
 .card-deck{
     padding: 0 7em;

@@ -92,7 +92,7 @@
                         document.querySelector('.default-row').style.display='none';
                         </script>";
                         echo "<div class='card-deck'>";
-                        echo "<h1 class='results_heading'>Search Results</h1>";
+                        echo "<h1 class='results_heading' style='margin-top: -2em;'>Search Results</h1>";
                         echo "</br>";
                         echo "<div class='row'>";
                             while ($row = mysqli_fetch_array($exec)) {
@@ -108,7 +108,12 @@
                         echo "</div>"; 
                     }
                     else{
-                        echo "No search result found";
+                        echo "<script type='text/javascript'>
+                        document.querySelector('.default-row').style.display='none';
+                        </script>";
+                        echo "<h1 style='text-align: center;'>No result found</h1>";
+                        echo "<img src='img/not_found.svg' style='height: 400px; 
+                               margin-left: 30em;'/>";
                     }
                 }
             ?>
