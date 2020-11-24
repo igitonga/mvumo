@@ -17,9 +17,6 @@
             </div>
             <!-- top nav links -->
             <div class="nav-links">
-               <div class="post_event">
-                   <p><a href="">POST EVENT</a></p>
-                </div>
                <ul>
                    <li><a href="login.php">Login</a></li>
                    <li><a href="signup.php">Sign Up</a></li>
@@ -41,6 +38,53 @@
                 <input type="text" name="eventName" id="eventName" placeholder="Find the event">
                 <input type="text" name="eventLocation" id="eventLocation" placeholder="Location">
                 <input type="submit" name="btnSearch" id="btnSearch" value="Search">
+            </div>
+        </div>
+
+        <!-- display some event categories -->
+        <div class="event-category">
+            <h2>Event categories</h2>
+            <div class="category-row">
+                <div class="card1">
+                    <img src="img/tech.jpg" alt="">
+                    <p>Tech</p>
+                </div>
+                <div class="card1">
+                    <img src="img/fitness.jpg" alt="">
+                    <p>Sports & Fitness</p>
+                </div>
+                <div class="card1">
+                    <img src="img/music.jpg" alt="">
+                    <p>Music</p>
+                </div>
+                <div class="card1">
+                    <img src="img/career.jpg" alt="">
+                    <p>Career & Business</p>
+                </div>
+                <div class="card1">
+                    <img src="img/art.jpg" alt="">
+                    <p>Art</p>
+                </div>
+                <div class="card1">
+                    <img src="img/fashion.jpg" alt="">
+                    <p>Fashion & Beauty</p>
+                </div>
+                <div class="card1">
+                    <img src="img/photography.jpg" alt="">
+                    <p>Photography</p>
+                </div>
+                <div class="card1">
+                    <img src="img/social.jpg" alt="">
+                    <p>Social</p>
+                </div>
+                <div class="card1">
+                    <img src="img/games.jpg" alt="">
+                    <p>SCi-Fi & Games</p>
+                </div>
+                <div class="card1">
+                    <img src="img/film.jpg" alt="">
+                    <p>Film</p>
+                </div>
             </div>
         </div>
     </div>
