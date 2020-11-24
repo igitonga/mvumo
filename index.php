@@ -17,6 +17,9 @@
             </div>
             <!-- top nav links -->
             <div class="nav-links">
+               <div class="post_event">
+                   <p><a href="">POST EVENT</a></p>
+                </div>
                <ul>
                    <li><a href="login.php">Login</a></li>
                    <li><a href="signup.php">Sign Up</a></li>

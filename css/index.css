@@ -27,6 +27,25 @@ body{
 
 .nav-links{
     margin-right: 2em;
+    display: flex;
+}
+
+.nav-links .post_event{
+    background: var(--clr-p);
+    padding: 0 1em;
+    border-radius: 100px;
+}
+
+.nav-links .post_event:hover{
+    cursor: pointer;
+    background: #0033ffb0;
+}
+
+.nav-links .post_event a{
+    text-decoration: none;
+    color: var(--clr-s);
+    font-weight: bold;
+    font-size: .8em;
 }
 
 .nav-links ul{
