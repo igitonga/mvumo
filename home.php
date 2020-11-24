@@ -81,8 +81,8 @@
                     $user_search = $_POST['searchBar'];
                     $search = mysqli_real_escape_string($connection, $user_search);
 
-                    $search_query = "SELECT * FROM `event` WHERE `date` LIKE '%$user_search%' OR `location` LIKE '%$user_search%'
-                                     OR `description` LIKE '%$user_search%'";
+                    $search_query = "SELECT * FROM `event` WHERE `category` LIKE '%$user_search%' OR `date` LIKE '%$user_search%' OR
+                                     `location` LIKE '%$user_search%' OR `description` LIKE '%$user_search%'";
                     $exec = mysqli_query($connection, $search_query);
                     
                     $num_rows = mysqli_num_rows($exec);

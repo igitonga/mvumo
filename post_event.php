@@ -51,6 +51,22 @@
                         <img src="img/placeholder-image.png " alt="poster_image" id="posterDisplay" onclick="setPoster()">
                         <input type="file" name="posterImg" id="posterImg" onchange="displayPoster(this)">
                     </div>
+                    <div class="category-cont">
+                        <label for="category">Event category</label><br>
+                        <select name="category" class="category" required >
+                            <option value="" disabled selected hidden>Choose a category...</option>
+                            <option value="tech">Tech</option>
+                            <option value="sports and fitness">Sports & Fitness</option>
+                            <option value="music">Music</option>
+                            <option value="career and business">Career & Business</option>
+                            <option value="art">Art</option>
+                            <option value="fashion and beauty">Fashion & Beauty</option>
+                            <option value="photography">Photography</option>
+                            <option value="social">Social</option>
+                            <option value="sci-fi and games">SCi-Fi & Games</option>
+                            <option value="film">Film</option>
+                        </select><br>
+                    </div>
                     <div class="date-cont">
                         <label for="date">Date of the event</label><br>
                         <input type="date" name="date" class="date" required>

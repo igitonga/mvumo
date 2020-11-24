@@ -148,6 +148,14 @@ body{
     cursor: pointer;
 }
 
+.info-table .category{
+    margin-top: 0.3em;
+    margin-bottom: 0.8em;
+    padding: 0.5em;
+    width: 500px;
+    cursor: pointer;
+}
+
 .info-table .description{
     margin-bottom: 0.8em;
     width: 500px;

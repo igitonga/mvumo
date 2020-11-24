@@ -41,12 +41,19 @@ if(isset($_POST['postEvtBtn'])){
                     require_once('db_connection.php');
                     
                     $poster = $fileNewName;
+                    $cat = $_POST['category'];
                     $date = $_POST['date'];
                     $loc = $_POST['location'];
                     $desc = $_POST['description'];
 
-                    $sql = "INSERT INTO `event` (`user_id`, `image`, `date`, `location`, `description`) 
-                            VALUES ('$active_id', '$poster', '$date', '$loc', '$desc')";
+                    // setting up cookies
+                    setcookie('category', $cat, time()+1, "/");
+                    setcookie('date', $date, time()+1, "/");
+                    setcookie('location', $loc, time()+1, "/");
+                    setcookie('description', $desc, time()+1, "/");
+
+                    $sql = "INSERT INTO `event` (`user_id`, `image`, `category`, `date`, `location`, `description`) 
+                            VALUES ('$active_id', '$poster', '$cat', '$date', '$loc', '$desc')";
                     $exec = mysqli_query($connection, $sql);
 
                     if($exec){
