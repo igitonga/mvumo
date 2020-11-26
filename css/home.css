@@ -182,9 +182,6 @@ body{
 .card-deck{
     padding: 0 7em;
     margin-top: 5em;
-    display: grid;
-    grid-template-rows: auto;
-    grid-row-gap: 1em;
 }
 
 .card-deck .row{
@@ -232,11 +229,11 @@ body{
 
 /* footer */
 .footer{
-    background: var(--clr-o);
+    background: #000000;
     color: var(--clr-s);
     height: 10vh;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     margin-top: 6em;
 }

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/bb8cdd0579.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/index.css">
     <link rel="icon" href="img/app-icon.png">
     <title>Mvumo - Time to turn up</title>
@@ -34,12 +35,65 @@
         </div>
         <!-- search panel for events -->
         <div class="search-section">
-            <div class="search-section_2">
-                <input type="text" name="eventName" id="eventName" placeholder="Find the event">
-                <input type="text" name="eventLocation" id="eventLocation" placeholder="Location">
-                <input type="submit" name="btnSearch" id="btnSearch" value="Search">
-            </div>
+            <form action="index.php" method="POST">
+                <div class="search-section_2">
+                    <input type="text" name="eventName" id="eventName" placeholder="Search by event name / location">
+                    <input type="submit" name="btnSearch" id="btnSearch" value="Search" >
+                </div>
+            </form>    
         </div>
+
+        <!-- php to display events searched -->
+        <?php 
+        
+        if(isset($_POST['btnSearch'])){
+            
+            include('backend/db_connection.php');
+
+            // when the user is using 'find event' field
+            $user_search_1 = $_POST['eventName'];
+
+            // pop up if the field is empty
+            if($user_search_1 == ''){
+                echo "<script type=text/javascript>alert('Search fields are empty');</script>";
+            }
+            else{
+            $search_1 = mysqli_real_escape_string($connection, $user_search_1);
+
+            $search_query_1 = "SELECT * FROM `event` WHERE `category` LIKE '%$user_search_1%' OR `description` LIKE '%$$user_search_1%'
+                               OR `location` LIKE '%$user_search_1%'";
+            $exec_1 = mysqli_query($connection, $search_query_1);
+            
+            $num_rows_1 = mysqli_num_rows($exec_1);
+
+            if($num_rows_1 > 0){
+                echo "<div class='card-deck' id='card-deck'>";
+                echo "<h2 class='results_heading' style='margin-top: -1em;'>Search Results</h2>";
+                echo "</br>";
+                echo "<div class='row'>";
+                    while ($row_1 = mysqli_fetch_array($exec_1)) {
+                        echo "<div class='card'>";
+                            echo "<img src='uploaded_posters/".$row_1['image']."' >";
+                            echo "<p class='card_date'>".date("d-m-Y",strtotime($row_1['date']))."</p>";
+                            echo "<p class='card_location'>".$row_1['location']."</p>";
+                            echo "<p class='card_desc'>".$row_1['description']."</p>";
+                        echo "</div>";
+                    
+                    }
+                echo "</div>";    
+                echo "</div>"; 
+            }
+            else{
+                echo "<div class='card-deck'>";
+                echo "<h2 style='margin-top: -1em;'>No result found</h2>";
+                echo "<img src='img/not_found.svg' style='height: 400px; 
+                       margin-left: 15em;'/>";
+                echo "</div>";        
+            }
+        }
+        }
+
+        ?>
 
         <!-- display some event categories -->
         <div class="event-category">
@@ -90,7 +144,9 @@
     </div>
 
     <footer class="footer">
-        <p>&copy; <script>document.write(new Date().getFullYear())</script> Mvumo</p>
+        <div class="copyright">
+            <p>&copy; <script>document.write(new Date().getFullYear())</script> Mvumo</p>
+        </div>
     </footer>
 </body>
 </html>
