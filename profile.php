@@ -1,5 +1,5 @@
 <?php
-
+// php to display user profolio details in input boxes
 include('backend/db_connection.php');
 include('backend/login.php');
 
@@ -14,11 +14,6 @@ $firstName = $row['first_name'];
 $lastName = $row['last_name'];
 $username = $row['username'];
 $email = $row['email'];
-
-$sql2 = mysqli_query($connection, "SELECT * FROM `profile` WHERE `user_id`='$active_id'");
-
-$row = mysqli_fetch_assoc($sql2);
-
 $phone = $row['phone'];
 $location = $row['location'];
 $category = $row['category'];
@@ -63,46 +58,46 @@ $gender = $row['gender'];
             <div class="user-options">
                 <ul>
                     <li><i class="fas fa-user"></i><a href="profile.php">Profile</a></li>
-                    <li><i class="fas fa-coins"></i><a href="">Payments Made</a></li>
+                    <!-- <li><i class="fas fa-coins"></i><a href="">Payments Made</a></li> -->
+                    <!-- <li><i class="fas fa-clipboard-list"></i><a href="">Activities</a></li> -->
                     <li><i class="fas fa-sign-out-alt"></i><a href="backend/logout.php">Log Out</a></li>
                 </ul>
             </div>
         </div>
         <div class="profile-cont">
             <div class="profile-cont_2">
+            <!-- active username -->
                 <div class="username">  
                     <h2><?php echo $username ?></h2>
                 </div>
-                <div class="dp-cont">
-                    <form action="backend/profile.php" method="POST" enctype="multipart/form-data">
-                        <img src="img/placeholder-image.png " alt="user_image" id="profileDisplay" onclick="setDp()">
-                        <input type="file" name="profilePic" id="profilePic" onchange="displayImage(this)">
-                    </form>
-                </div>
                 <div class="profile-info">
-                    <form action="backend/profile.php" method="POST">
+                    <form action="backend/profile.php" method="POST" enctype="multipart/form-data">
+                        <div class="dp-cont">
+                            <img src="img/placeholder-image.png " alt="user_image" id="profileDisplay" onclick="setDp()">
+                            <input type="file" name="profilePic" id="profilePic" onchange="displayImage(this)">
+                        </div>
                         <div class="names">
                             <div class="n1">
                                 <label for="firstName">First Name</label><br>
-                                <input type="text" id="firstName" name="firstName" value=<?php echo $firstName; ?>><br>
+                                <input type="text" id="firstName" name="firstName" value=<?php echo $firstName; ?> readonly><br>
                             </div>
                             <div class="n2">
                                 <label for="lastName">Last Name</label><br>
-                                <input type="text" id="lastName" name="lastName" value=<?php echo $lastName; ?>><br>
+                                <input type="text" id="lastName" name="lastName" value=<?php echo $lastName; ?> readonly><br>
                             </div>
                         </div>
 
                         <label for="email">Email</label><br>
-                        <input type="email" id="email" name="email" value=<?php echo $email ; ?>><br>
+                        <input type="email" id="email" name="email" value=<?php echo $email ; ?> readonly><br>
 
                         <label for="phone">Phone</label><br>
-                        <input type="tel" id="phone" name="phone" required value=<?php echo $phone ; ?>><br>
+                        <input type="tel" id="phone" name="phone" value=<?php echo $phone ; ?>><br>
 
                         <label for="location">Location</label><br>
-                        <input type="text" id="location" name="location" required value=<?php echo $location ; ?>><br>
+                        <input type="text" id="location" name="location" value=<?php echo $location ; ?>><br>
 
                         <label for="category">Event Category</label><br>
-                        <select name="category" id="category" required  value=<?php echo $category; ?>>
+                        <select name="category" class="category">
                             <option value="" disabled selected hidden>Choose a category...</option>
                             <option value="tech">Tech</option>
                             <option value="sports and fitness">Sports & Fitness</option>
@@ -120,7 +115,7 @@ $gender = $row['gender'];
                         <input type="date" id="birthday" name="birthday" value=<?php echo $birthday ; ?>><br>
 
                         <label for="gender">Gender</label><br>
-                        <select name="gender" id="gender" rquired  value=<?php echo $gender ; ?>>
+                        <select name="gender" class="gender">
                             <option value="" disabled selected hidden>Choose Gender...</option>
                             <option value="male">Male</option>
                             <option value="female">Female</option>

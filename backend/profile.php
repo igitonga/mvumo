@@ -4,88 +4,45 @@ function addProfile($con, $img, $phn, $loc, $cat, $bday, $gen){
 
    include('./login.php');
 
-   $active_id = $_SESSION['active_id'];
+   $active_email = $_SESSION['active_email'];
+   $active_id = $_SESSION['active_id']; 
 
-   $sql = "INSERT INTO `profile`(`user_id`, `image`, `phone`, `location`, `category`, `birthday`, `gender`)
-           VALUES ('$active_id', '$img', '$phn','$loc','$cat','$bday','$gen')";
+   $sql = "UPDATE `users` SET `user_id` = '$active_id', `image` = '$img', `phone` = '$phn', `location` = '$loc',
+          `category` = '$cat', `birthday` = '$bday', `gender` = '$gen' WHERE `email` = '$active_email'";
    $exec = mysqli_query($con, $sql);
 
    if($exec){
-      
+   
       header('location: ../profile.php');
    }
    else{
-      //mysqli_error($con);
+    //  mysqli_error($con);
    }
    
 }
 
 // button
 if(isset($_POST['saveBtn'])){
-
-   // profile picture verification
-   $file = $_FILES['profilePic'];
-
-   print_r($file);
-
-    // $fileName = $_FILES['profilePic']['name'];
-    // $fileType = $_FILES['profilePic']['type'];
-    // $fileTmpName = $_FILES['profilePic']['tmp_name'];
-    // $fileSize = $_FILES['profilePic']['size'];
-    // $fileError = $_FILES['profilePic']['error'];
-
-    // $fileExt = explode('.', $fileName);
-    // $fileActExt = strtolower(end($fileExt));
-    // $fileTypeAllowed = array('jpg', 'jpeg', 'png', 'svg');
-
-    // // checking for the correct image type
-    // if(in_array($fileActExt, $fileTypeAllowed)){
-
-    //     // check if the image has an error
-    //     if($fileError === 0){
-
-    //         // check the image size => should be below 1mb
-    //         if($fileSize < 1000000){
-
-    //             // add a unique id as the image name instead of the actual name
-    //             $fileNewName = uniqid('', true).".".$fileActExt; 
-                
-    //             if(file_exists('db_connection.php')){
-
-    //                 require_once('db_connection.php');
-                    
-    //                 $profImg = $fileNewName;
-    //                 $phone = $_POST['phone'];
-    //                 $location = $_POST['location'];
-    //                 $category = $_POST['category'];
-    //                 $bDay = $_POST['birthday'];
-    //                 $gender = $_POST['gender'];
       
-    //                 addProfile($connection, $profImg, $phone, $location, $category, $bDay, $gender);
+     
+  if(file_exists('db_connection.php')){
 
-    //                 //path to image storage 
-    //                 $store = "../uploaded_profile_imgs/".$fileNewName;
+   require_once('db_connection.php');
 
-    //                 move_uploaded_file($fileTmpName, $store);
-                    
-    //             }  
-    //             else{
-    //                 echo "File is not found";
-    //             }
-    //         }
-    //         else{
-    //             echo "The image size is too big";
-    //         }
-    //     }
-    //     else{
-    //         echo "An error occurred when uploading your image";
-    //     }
-    // }
-    // else{
-    //     echo "Cannot upload image of that type.";
-    // }
+   $image = $_FILES['profilePic'];
+   $phone = $_POST['phone'];
+   $location = $_POST['location'];
+   $category = $_POST['category'];
+   $birthday = $_POST['birthday'];
+   $gender = $_POST['gender'];
 
-    
+   print_r($_POST);
+
+   addProfile($connection, $image, $phone, $location, $category, $birthday, $gender);
+ }  
+ else{
+    // echo "File is not found";
+ }
 }
 else{
    // echo "Technical difficulty";

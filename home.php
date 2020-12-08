@@ -33,7 +33,8 @@
             <div class="user-options">
                 <ul>
                     <li><i class="fas fa-user"></i><a href="profile.php">Profile</a></li>
-                    <li><i class="fas fa-coins"></i><a href="payments.html">Payments Made</a></li>
+                    <!-- <li><i class="fas fa-coins"></i><a href="payments.html">Payments Made</a></li> -->
+                    <!-- <li><i class="fas fa-clipboard-list"></i><a href="">Activities</a></li> -->
                     <li><i class="fas fa-sign-out-alt"></i><a href="backend/logout.php">Log Out</a></li>
                 </ul>
             </div>
