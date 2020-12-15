@@ -45,6 +45,13 @@
                     echo $_SESSION["error"];
                 }
             ?>
+            <?php  include("backend/alert.php");?>
+            <?php 
+                    
+                if(isset($_SESSION["success"])){
+                    echo $_SESSION["success"];
+                }
+            ?>
                 <form action="backend/post_event.php" method="POST" enctype="multipart/form-data">
                     <div class="poster-cont">
                         <label for="posterImg">Add event poster</label><br>
@@ -69,15 +76,27 @@
                     </div>
                     <div class="date-cont">
                         <label for="date">Date of the event</label><br>
-                        <input type="date" name="date" class="date" required>
+                        <input type="date" name="date" class="date" value=<?php
+                        if(isset($_COOKIE['date'])){
+                            echo $_COOKIE['date'];
+                        }
+                        ?> required>
                     </div>
                     <div class="location-cont">
                         <label for="location">Location of the event</label><br>
-                        <input type="text" name="location" class="location" required>
+                        <input type="text" name="location" class="location" alue=<?php
+                        if(isset($_COOKIE['location'])){
+                            echo $_COOKIE['location'];
+                        }
+                        ?> required>
                     </div>
                     <div class="description-cont">
                         <label for="description">Give a small description</label><br>
-                        <textarea name="description" class="description" cols="30" rows="10" placeholder="Write Something..." required></textarea>
+                        <textarea name="description" class="description" cols="30" rows="10" placeholder="Write Something..." value=<?php
+                        if(isset($_COOKIE['description'])){
+                            echo $_COOKIE['description'];
+                        }
+                        ?> required></textarea>
                     </div>
                     <button type="submit" class="postEvtBtn" name="postEvtBtn">Post</button>
                 </form>

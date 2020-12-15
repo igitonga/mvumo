@@ -70,6 +70,13 @@ $gender = $row['gender'];
                 <div class="username">  
                     <h2><?php echo $username ?></h2>
                 </div>
+                <?php  include("backend/alert.php");?>
+                <?php 
+                        
+                    if(isset($_SESSION["error"])){
+                        echo $_SESSION["error"];
+                    }
+                ?>
                 <div class="profile-info">
                     <form action="backend/profile.php" method="POST" enctype="multipart/form-data">
                         <div class="dp-cont">
@@ -135,5 +142,6 @@ $gender = $row['gender'];
 
     <!-- js files -->
     <script src="js/app.js"></script>
+    
 </body>
 </html>

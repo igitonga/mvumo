@@ -8,6 +8,10 @@ $active_id =  $_SESSION['active_id'];
 if(isset($_POST['postEvtBtn'])){
 
     // active user
+    $cat = $_POST['category'];
+    $date = $_POST['date'];
+    $loc = $_POST['location'];
+    $desc = $_POST['description'];
 
     $file = $_FILES['posterImg'];
 
@@ -41,16 +45,6 @@ if(isset($_POST['postEvtBtn'])){
                     require_once('db_connection.php');
                     
                     $poster = $fileNewName;
-                    $cat = $_POST['category'];
-                    $date = $_POST['date'];
-                    $loc = $_POST['location'];
-                    $desc = $_POST['description'];
-
-                    // setting up cookies
-                    setcookie('category', $cat, time()+1, "/");
-                    setcookie('date', $date, time()+1, "/");
-                    setcookie('location', $loc, time()+1, "/");
-                    setcookie('description', $desc, time()+1, "/");
 
                     $sql = "INSERT INTO `event` (`user_id`, `image`, `category`, `date`, `location`, `description`) 
                             VALUES ('$active_id', '$poster', '$cat', '$date', '$loc', '$desc')";
@@ -60,7 +54,9 @@ if(isset($_POST['postEvtBtn'])){
                          // move poster to the uploaded poster folder
                          move_uploaded_file($fileTmpName, $store); 
                          
-                         header('location: ../home.php');
+                         $_SESSION['success'] = "Event posted successfully";
+                         header('location: ../post_event.php');
+                        
                     }
                     else{
                        // echo mysqli_error($connection);
@@ -74,16 +70,34 @@ if(isset($_POST['postEvtBtn'])){
             else{
                 $_SESSION['error'] = "The image size is too big";
                 header('location: ../post_event.php');
+
+                 // setting up cookies
+                 setcookie('category', $cat, time()+1, "/");
+                 setcookie('date', $date, time()+1, "/");
+                 setcookie('location', $loc, time()+1, "/");
+                 setcookie('description', $desc, time()+1, "/");
             }
         }
         else{
             $_SESSION['error'] = "An error occurred when uploading your image";
             header('location: ../post_event.php');
+
+             // setting up cookies
+             setcookie('category', $cat, time()+1, "/");
+             setcookie('date', $date, time()+1, "/");
+             setcookie('location', $loc, time()+1, "/");
+             setcookie('description', $desc, time()+1, "/");
         }
     }
     else{
         $_SESSION['error'] = "Cannot upload image of that type.";
         header('location: ../post_event.php');
+
+         // setting up cookies
+         setcookie('category', $cat, time()+1, "/");
+         setcookie('date', $date, time()+1, "/");
+         setcookie('location', $loc, time()+1, "/");
+         setcookie('description', $desc, time()+1, "/");
     }
 
    
